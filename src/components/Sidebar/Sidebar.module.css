@@ -1,0 +1,23 @@
+.sidebar{
+  padding: 10px;
+  grid-area: sidebar;
+  background-color: gray;
+}
+
+.item{
+	color: #fff;
+}
+
+.item a{
+	text-decoration: none;
+	transition-duration: 500ms;
+	transition-property: color;
+}
+
+.active{
+	color: gold;
+}
+
+.item a:hover{
+	color: gold;
+}

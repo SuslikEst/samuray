@@ -1,0 +1,15 @@
+.content{
+  grid-area: content;
+  background-color: cadetblue;
+}
+
+.content figure {
+  padding: 0;
+  margin: 0;
+}
+
+.content figure img{
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
