@@ -2,15 +2,17 @@ import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = ({ posts, addPost, newPostText, changePost }) => {
+import { addPostActionCreator, changePostActionCreator } from '../../../redux/profile-reducer';
+
+const MyPosts = ({ posts, newPostText, dispatch }) => {
 
   const newPostEl = React.createRef();
 
   const handleAddPost = () => { 
-    addPost(); 
+    dispatch(addPostActionCreator()); 
   };
 
-  const handlePostChange = () => { changePost(newPostEl.current.value) };
+  const handlePostChange = () => { dispatch(changePostActionCreator(newPostEl.current.value)) };
 
 	return (
       <section>
