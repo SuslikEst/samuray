@@ -5,17 +5,15 @@ import classes from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-import { sendMessageActionCreator, updateNewMessageBodyActionCreator } from '../../redux/dialogs-reducer';
-
-const Dialogs = ({ dialogs, messages, newMessageBody, dispatch }) => {
+const Dialogs = ({ changeMessage, sendMessage, dialogs, messages, newMessageBody }) => {
 
   const handlerOnChangeMessage = (e) => {
     let body = e.target.value;
-    dispatch(updateNewMessageBodyActionCreator(body));
+    changeMessage(body);
   };
 
   const handlerSendMessage = () => {
-    dispatch(sendMessageActionCreator());
+    sendMessage();
   };
 
 	return (

@@ -1,8 +1,49 @@
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
+const initialState = {
+		messages: [
+				{
+				  id: 1,
+				  message: 'Hi!'
+				},
+				{
+				  id: 2,
+				  message: 'Hi, all!'
+				},
+				{
+				  id: 3,
+				  message: 'Hi Ivan!'
+				},
+				{
+				  id: 4,
+				  message: 'Hi!'
+				}
+			],
+			
+			dialogs: [
+				{
+				  id: 1,
+				  name: 'Sergey'
+				},
+				{
+				  id: 2,
+				  name: 'Ivan'
+				},
+				{
+				  id: 3,
+				  name: 'Viktor'
+				},
+				{
+				  id: 4,
+				  name: 'Ludmila'
+				}
+			],
 
-const dialogsReducer = (state, action) => {
+			newMessageBody: 'Enter'
+};
+
+const dialogsReducer = (state = initialState, action) => {
 
 	switch(action.type){
 
