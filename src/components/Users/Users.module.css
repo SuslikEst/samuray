@@ -1,0 +1,8 @@
+.usersList>div{
+  margin-bottom: 20px;
+}
+.selectedPage{
+	margin: 5px;
+	color: red;
+	font-weight: bold;
+}

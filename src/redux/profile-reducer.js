@@ -1,7 +1,9 @@
 const ADD_POST = 'ADD-POST';
 const CHANGE_POST = 'CHANGE-POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 const initialState = {
+	profile: null,
 	posts:[
 		{
 			id: 1,
@@ -31,27 +33,46 @@ const profileReducer = (state = initialState, action) => {
 
 	switch (action.type) {
 
+		case SET_USER_PROFILE:
+
+			return {
+				...state,
+				profile: action.profile
+			}
+
 		case ADD_POST:
+
 			const post = {
 				id: 5,
 				message: state.newPostText,
 				likesCount: 2
 			};
 
-			state.posts.push(post);
-			state.newPostText = 'Enter text...';
-			return state;
+			return {
+				...state,
+				newPostText: '',
+				posts: [ ...state.posts, post ]
+			};
 
 		case CHANGE_POST:
-			state.newPostText = action.text;
-		return state;
 
-		default:
+			return {
+				...state,
+				newPostText: action.text
+			}
+		
+		default:{
 			return state;
+		}
 
 	}
 
 };
+
+export const setUserProfile = (profile) => ({
+	type: SET_USER_PROFILE,
+	profile
+});
 
 export const addPostActionCreator = () => ( { type: ADD_POST } );
 export const changePostActionCreator = (text) => ({
