@@ -3,6 +3,8 @@ import classes from './ProfileInfo.module.css';
 
 import Preloader from '../../Common/Preloader';
 
+import ProfileStatus from './ProfileStatus/ProfileStatus.jsx';
+
 const ProfileInfo = (props) => {
   if(!props.profile){
     return <Preloader />
@@ -20,6 +22,9 @@ const ProfileInfo = (props) => {
         </div>
         <div>
           { props.profile.fullName }
+        </div>
+        <div>
+          <ProfileStatus status="Hello all mi friends!!!" />
         </div>
       </div>
 	);

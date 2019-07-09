@@ -13,6 +13,14 @@ const Users = (props) => {
 		pages.push(i);
 	}
 
+	const handlerFollow = (id) => {
+		props.follow(id);
+	};
+
+	const handlerUnFollow = (id) => {
+		props.unfollow(id);
+	};
+
 	return (
 		  <div className={ classes.usersList }>
     		<div>
@@ -38,9 +46,9 @@ const Users = (props) => {
 	    					</div>
 	    					<div>
 	    						{ u.followed ?
-	    							<button onClick={ () => { props.unfollow(u.id) } }>Nofollow</button>
+	    							<button disabled={ props.followingInProcess } onClick={ () => { handlerUnFollow(u.id) } }>Nofollow</button>
 	    							:
-	    							<button onClick={ () => { props.follow(u.id) } } >Follow</button>
+	    							<button disabled={ props.followingInProcess } onClick={ () => { handlerFollow(u.id) } } >Follow</button>
 	    						}
 	    					</div>
 	    				</span>

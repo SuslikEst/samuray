@@ -1,11 +1,12 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import classes from './Dialogs.module.css';
 
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
-const Dialogs = ({ changeMessage, sendMessage, dialogs, messages, newMessageBody }) => {
+const Dialogs = ({ changeMessage, sendMessage, dialogs, messages, newMessageBody, isAuth }) => {
 
   const handlerOnChangeMessage = (e) => {
     let body = e.target.value;
@@ -15,7 +16,6 @@ const Dialogs = ({ changeMessage, sendMessage, dialogs, messages, newMessageBody
   const handlerSendMessage = () => {
     sendMessage();
   };
-
 	return (
     <div className={ classes.dialogs } >
     	<div className={ classes.dialogsItems } >
